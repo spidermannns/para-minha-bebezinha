@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❤️ Para Minha Bebezinha ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    font-family: "Georgia", serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
+        180deg,
+        #6b8cff 0%,
+        #a5bfff 35%,
+        #ffb0c7 100%
+    );
+}
+
+/* Estrelas */
+
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:.2;}
+    50%{opacity:1;}
+}
+
+/* Fio vermelho */
+
+.red-thread{
+    position:fixed;
+    width:120%;
+    height:4px;
+    background:#c40018;
+    top:45%;
+    left:-10%;
+    transform:rotate(-8deg);
+    box-shadow:0 0 15px #ff4d6d;
+}
+
+/* Corações */
+
+.heart{
+    position:fixed;
+    color:#ff315c;
+    animation:float 10s linear infinite;
+    opacity:.5;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-120px);
+    }
+}
+
+/* Envelope */
+
+#envelope{
+    width:280px;
+    height:190px;
+    background:white;
+    position:relative;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    transition:.5s;
+    z-index:10;
+}
+
+#envelope:hover{
+    transform:scale(1.05);
+}
+
+#envelope::before{
+    content:'';
+    position:absolute;
+    border-left:140px solid transparent;
+    border-right:140px solid transparent;
+    border-top:95px solid #ececec;
+    top:0;
+}
+
+#envelope-text{
+    position:absolute;
+    width:100%;
+    text-align:center;
+    top:120px;
+    color:#c40018;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* Carta */
+
+#letter{
+    display:none;
+    width:min(90%,700px);
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+    z-index:20;
+    max-height:80vh;
+    overflow:auto;
+}
+
+#letter h1{
+    color:#d6002d;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+#message{
+    white-space:pre-line;
+    line-height:1.8;
+    font-size:18px;
+    color:#333;
+}
+
+.signature{
+    margin-top:25px;
+    text-align:right;
+    color:#d6002d;
+    font-size:22px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="red-thread"></div>
+
+<div id="envelope">
+    <div id="envelope-text">
+        Para Érica ❤️
+    </div>
+</div>
+
+<div id="letter">
+    <h1>❤️ Feliz Dia dos Namorados ❤️</h1>
+
+    <div id="message"></div>
+
+    <div class="signature">
+        Com amor,<br>
+        Bryan ❤️
+    </div>
+</div>
+
+<script>
+
+/* Estrelas */
+
+for(let i=0;i<120;i++){
+    const star=document.createElement("div");
+    star.classList.add("star");
+
+    star.style.left=Math.random()*100+"%";
+    star.style.top=Math.random()*100+"%";
+
+    star.style.animationDelay=Math.random()*3+"s";
+
+    document.querySelector(".stars").appendChild(star);
+}
+
+/* Corações */
+
+for(let i=0;i<18;i++){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+
+    heart.innerHTML="❤";
+
+    heart.style.left=Math.random()*100+"%";
+    heart.style.fontSize=(20+Math.random()*25)+"px";
+    heart.style.animationDuration=(8+Math.random()*8)+"s";
+
+    document.body.appendChild(heart);
+}
+
+/* Texto */
+
+const text = `
+
+Momo,
+
+sei que está sendo difícil ultimamente. Não consigo mensurar o quão difícil é para você lidar com tudo isso. Venho tentando melhorar e espero que essas mudanças consigam te alcançar.
+
+Hoje venho aqui com um gesto muito valioso e espero que ainda haja um espacinho no seu coraçãozinho para isso.
+
+Nunca vou deixar de me esforçar para alcançarmos novos patamares. Eu sempre vou te amar, independente de tudo, Eri. Você sabe disso, né!?
+
+Estou muito receoso se você realmente vai gostar do anel. Eu pensei muito sobre qual escolher e acabei chegando neste.
+
+Eu sabia que esse não seria o nosso anel definitivo, pois eu queria algo maior para isso, mas, ao mesmo tempo, não queria algo pequeno.
+
+Ao invés de pequenos detalhes como a cor ou a forma, eu encontrei esse par com um valor simbólico maior por trás das linhas vermelhas.
+
+Nunca assisti ao filme Your Name, mas gostaria muito de ver com você, e já vi sobre as histórias delas.
+
+(Akai Ito)
+
+Com isso, eu preciso te perguntar:
+
+Você aceita, Eri?
+
+Ver este pequeno gesto e esse filme comigo?
+
+E claro...
+
+Você aceita namorar comigo, princesa?
+
+Ainda irei pedir pessoalmente e quantas vezes forem necessárias, mas espero que, em todas elas, haja um espacinho no seu coraçãozinho para eu aflorar todo o meu amor.
+
+`;
+
+document.getElementById("envelope").onclick=()=>{
+
+    document.getElementById("envelope").style.display="none";
+    document.getElementById("letter").style.display="block";
+
+    let i=0;
+
+    function type(){
+        if(i<text.length){
+            document.getElementById("message").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type,25);
+        }
+    }
+
+    type();
+}
+
+</script>
+
+</body>
+</html>
