@@ -331,11 +331,24 @@ Ainda irei pedir pessoalmente e quantas vezes forem necessárias, mas espero que
 
 document.getElementById("envelope").onclick=()=>{
 
-    const music=document.getElementById("bgmusic");
+const music = document.getElementById("bgmusic");
 
-    if(music){
-        music.play().catch(()=>{});
-    }
+if(music){
+
+    music.volume = 1.0;
+
+    music.muted = false;
+
+    music.play().then(() => {
+
+        console.log("Música iniciada");
+
+    }).catch(error => {
+
+        console.error("Erro ao tocar:", error);
+
+    });
+}
 
     document.getElementById("envelope").style.display="none";
 
